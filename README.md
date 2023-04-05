@@ -12,6 +12,7 @@ sudo u2spewfoo /var/log/snort/snort.log
 ```
 
 * What does the rule action `alert` do?
+   *The alert action is something that is put in place to look for a certain something. In our example when it finds a ICMP packet it will let you know. You can also use the alert command to search for something you want to find or something that should not be somewhere.
 * In this scenario, why might we ***NOT*** want to use the `reject` or `drop` 
   rule actions?  Be sure to understand the scenario by reading task 1 instructions
   and be verbose in your answer!
