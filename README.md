@@ -75,7 +75,7 @@ alert tcp any 80 -> any any (msg:"Incoming traffic from twitter.com"; content:"H
 ### Task 3: EC (30 points)
 
 * What rule did you choose?
-
+  * I choose chat.rules  
 ```bash
 
 ```
