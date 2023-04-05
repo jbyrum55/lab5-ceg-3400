@@ -45,7 +45,7 @@ Packet
 List all three of your new rules in `/etc/snort/rules/local.rules` here:
 
 ```bash
-ubuntu@ip-10-0-0-25:~$ cat /etc/snort/rules/local.rules
+ubuntu@ip-10-0-0-25:/$ cat /etc/snort/rules/local.rules
 # $Id: local.rules,v 1.11 2004/07/23 20:15:44 bmc Exp $
 # ----------------
 # LOCAL RULES
@@ -53,11 +53,12 @@ ubuntu@ip-10-0-0-25:~$ cat /etc/snort/rules/local.rules
 # This file intentionally does not come with signatures.  Put your local
 # additions here.
 alert icmp any any -> any any (msg:"ICMP Packet found"; sid:1000001; rev:1;)
-alert ip any any -> any any (msg:"Traffic to/from Gizoogle, Lingscars, or Twitter detected"; \
-   content:"Host: "; nocase; \
-   pcre:"/Host\s*:\s*(www.gizoogle.net|www.lingscars.com|twitter.com)/i"; \
-   sid:1000002; rev:1;)
-
+alert tcp any any -> any 80 (msg:"Outgoing traffic to www.gizoogle.net"; content:"Host\: www.gizoogle.net"; sid:1000002; rev:1;)
+alert tcp any any -> any 80 (msg:"Outgoing traffic to www.lingscars.com"; content:"Host\: www.lingscars.com"; sid:1000003; rev:1;)
+alert tcp any any -> any 80 (msg:"Outgoing traffic to twitter.com"; content:"Host\: twitter.com"; sid:1000004; rev:1;)
+alert tcp any 80 -> any any (msg:"Incoming traffic from www.gizoogle.net"; content:"Host\: www.gizoogle.net"; sid:1000005; rev:1;)
+alert tcp any 80 -> any any (msg:"Incoming traffic from www.lingscars.com"; content:"Host\: www.lingscars.com"; sid:1000006; rev:1;)
+alert tcp any 80 -> any any (msg:"Incoming traffic from twitter.com"; content:"Host\: twitter.com"; sid:1000007; rev:1;)
 
 ```
 
