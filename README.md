@@ -45,12 +45,27 @@ Packet
 List all three of your new rules in `/etc/snort/rules/local.rules` here:
 
 ```bash
-cat /etc/snort/rules/local.rules
+ubuntu@ip-10-0-0-25:~$ cat /etc/snort/rules/local.rules
+# $Id: local.rules,v 1.11 2004/07/23 20:15:44 bmc Exp $
+# ----------------
+# LOCAL RULES
+# ----------------
+# This file intentionally does not come with signatures.  Put your local
+# additions here.
+alert icmp any any -> any any (msg:"ICMP Packet found"; sid:1000001; rev:1;)
+alert ip any any -> any any (msg:"Traffic to/from Gizoogle, Lingscars, or Twitter detected"; \
+   content:"Host: "; nocase; \
+   pcre:"/Host\s*:\s*(www.gizoogle.net|www.lingscars.com|twitter.com)/i"; \
+   sid:1000002; rev:1;)
+
 
 ```
 
 * What is a zero-day attack?
+  * A zero-day attack is an attack on a network or software that the developer or manager is unaware of. They call it a zero-day attack because the manager or developer does not know about the hole in their code or network to get a patch out in time, therefore they have zero days to prepare for it.
+
 * Can Snort catch zero-day network attacks?  If not, why not?  If yes, how?
+  * Yes, Snort can catch zero-day network attacks. Snort can look out for suspicious incoming traffic and get the jump the incoming threat from a vulnerability before it has time to act.
 * What commands/process did you use to test your rules?  Be verbose!
 * Provide the snort logs for your tests in a separate file `task2.logs`
 
