@@ -68,7 +68,7 @@ alert tcp any 80 -> any any (msg:"Incoming traffic from twitter.com"; content:"H
 * Can Snort catch zero-day network attacks?  If not, why not?  If yes, how?
   * Yes, Snort can catch zero-day network attacks. Snort can look out for suspicious incoming traffic and get the jump the incoming threat from a vulnerability before it has time to act.
 * What commands/process did you use to test your rules?  Be verbose!
-  * First I had to add the rules to the local.rules, then I had to restart. Next I used the command curl -H "Host: www.gizoogle.net" 54.174.113.99. This command uses my virtual IP to ping the website that I had flagged by the alert command. Then I printed the readable file to task2.logs.
+  * First I had to add the rules to the local.rules, then I had to restart. Next I used the command curl -H "Host: www.gizoogle.net" 54.174.113.99. This command uses my virtual IP to ping the website that I had flagged by the alert command. Then I printed the readable file to task2.logs. 
 
 * Provide the snort logs for your tests in a separate file `task2.logs`
 
