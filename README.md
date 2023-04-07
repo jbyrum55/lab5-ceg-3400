@@ -78,11 +78,26 @@ alert tcp any 80 -> any any (msg:"Incoming traffic from twitter.com"; content:"H
 
 * What rule did you choose?
   * I choose chat.rules  
-```bash
-
-```
-
-* Describe the rule in detail (I purposely left formatting help out, be creative and make good use of markdown)!
-* Describe what the rule is intended to detect and why someone might want this rule active.
+Explain all parts of the rule and what they do including:
+* Rule headers including IP, protocol, port, and direction
+  * IP- This rule uses two variables for an external and internal network addresses. It does not specify a certain IP address.
+  Protocol- This rule scans for TCP traffic.
+  Port- This rule looks for traffic on any port specified.
+  Direction- This rule looks for traffic going from any external IP address to any IP address on a network.
+* Active rules and options including content, offset, and all relevent options to make the rule work
+    * Alert- Will generate an alert if it matches the specification.
+      * Traffic- It needs to know what type of traffic to monitor such as TCP.
+      * Source and Destination- Needs the source and destination addresses and ports for the traffic to match. 
+      * Message- It needs to have a message to display to the user.
+      * Flow- This option limits the rule to only look at traffic that has already established a connection to the server.
+      * Content- Needs to have specific content specified that the rule can look for in the packet.
+      * Offset- This specifies the position in the packet where the content should start being searched.
+      * Depth- This specifies the maximum length of the packet to search for the content.
+      * Reference- This provides a reference to the CVE vulnerability that this rule is designed to detect.
+      * Classtype- This specifies the classification type of the alert.
+      * Sid- This is the unique ID number of the rule.
+      * Rev- This is the revision number of the rule.
+* Your words on what the rule is trying to detect.
+  * This rules file has rules that aim to detect many instant messaging traffic for the large messaging companies such as many popular messanger websites and services. A user of these rules can set an alert to search for certain parts of a packet that may be of interest such as certain strings of data.
 
 

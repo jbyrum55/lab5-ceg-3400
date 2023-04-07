@@ -124,7 +124,7 @@ Explain all parts of the rule and what they do including:
   Port- This rule looks for traffic on any port specified.
   Direction- This rule looks for traffic going from any external IP address to any IP address on a network.
 * Active rules and options including content, offset, and all relevent options to make the rule work
-  * Alert- Will generate an alert if it matches the specification.
+    * Alert- Will generate an alert if it matches the specification.
       * Traffic- It needs to know what type of traffic to monitor such as TCP.
       * Source and Destination- Needs the source and destination addresses and ports for the traffic to match. 
       * Message- It needs to have a message to display to the user.
