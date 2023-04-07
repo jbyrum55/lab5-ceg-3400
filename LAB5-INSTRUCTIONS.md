@@ -120,7 +120,7 @@ Choose any rule out of `/etc/snort/rules/` (excluding `local.rules`) and do a de
 Explain all parts of the rule and what they do including:
 * Rule headers including IP, protocol, port, and direction
   * IP- This rule uses two variables for an external and internal network addresses. It does not specify a certain IP address.
-  Protocol- This rule scans for TCP traffic.
+  Protocol- This rule scans for TCP traffic. 
   Port- This rule looks for traffic on any port specified.
   Direction- This rule looks for traffic going from any external IP address to any IP address on a network.
 * Active rules and options including content, offset, and all relevent options to make the rule work
